@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_desgin_app/IosDesgin.dart';
 import 'AndroidDesgin.dart';
-import 'PlatformType.dart';
+import 'dart:io';
 
 void main() {
   runApp(MyApp());
@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget{
-  PlatformType platform=new PlatformType();
+  // PlatformType platform=new PlatformType();
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    if (platform.platformTypeVal()=="ios") {
+    if (Platform.isIOS) {
       return IosDesgin();
-    } else if (platform.platformTypeVal() == "android") {
+    } else if (Platform.isAndroid) {
       return AndroidDesgin();
     } else {
       return Text("Not supported");
